@@ -16,9 +16,8 @@ public class Main {
         System.out.println("Nicks java server");
         System.out.println("-------------------------\n");
         System.out.println("1 - java client");
-        System.out.println("2 - java server");
-        System.out.println("3 - guide");
-        System.out.println("4 - Quit");
+        System.out.println("2 - java server");;
+        System.out.println("3 - Quit");
         System.out.println("-------------------------\n");
         selection = input.nextInt();
         if (selection == 1){
@@ -28,11 +27,6 @@ public class Main {
             javaserver.main(args);
         }
         if(selection ==3){
-            System.out.print("to m text to binaryake \n");
-            System.out.print("first use text to hex and then use hex to binary");
-
-        }
-        if (selection == 4) {
             System.exit(0);
         }
 
