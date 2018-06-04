@@ -18,7 +18,7 @@ public class javaserver {
                 InputStreamReader inr = new InputStreamReader(in);
                 BufferedReader br = new BufferedReader(inr);
                 String str = br.readLine();
-                System.out.println("Ping command received from : "+c.getInetAddress() +" with string "+str);
+                System.out.println("message: "+c.getInetAddress() +" with string "+str);
                 PrintStream ps = new PrintStream(c.getOutputStream());
                 ps.println(str);
             }
