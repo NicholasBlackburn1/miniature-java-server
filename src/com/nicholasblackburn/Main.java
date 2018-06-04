@@ -13,7 +13,7 @@ public class Main {
 
         /***************************************************/
 
-        System.out.println("Nicks all in one text to hex to binary converter");
+        System.out.println("Nicks java server");
         System.out.println("-------------------------\n");
         System.out.println("1 - java client");
         System.out.println("2 - java server");
