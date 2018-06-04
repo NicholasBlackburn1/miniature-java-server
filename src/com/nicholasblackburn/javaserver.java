@@ -8,7 +8,7 @@ public class javaserver {
 
         public static void main(String args[]) throws IOException
         {
-
+// creates server
             ServerSocket s;
             s = new ServerSocket(2000);
             while(true)
