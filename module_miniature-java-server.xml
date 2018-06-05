@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_miniature-java-server" default="compile.module.miniature-java-server">
+  <dirname property="module.miniature-java-server.basedir" file="${ant.file.module_miniature-java-server}"/>
+  
+  
+  <property name="compiler.args.miniature-java-server" value="-encoding UTF-8 -source 1.8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="miniature-java-server.output.dir" value="${module.miniature-java-server.basedir}/out/production/miniature-java-server"/>
+  <property name="miniature-java-server.testoutput.dir" value="${module.miniature-java-server.basedir}/out/test/miniature-java-server"/>
+  
+  <path id="miniature-java-server.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="miniature-java-server.module.production.classpath"/>
+  
+  <path id="miniature-java-server.runtime.production.module.classpath">
+    <pathelement location="${miniature-java-server.output.dir}"/>
+  </path>
+  
+  <path id="miniature-java-server.module.classpath">
+    <pathelement location="${miniature-java-server.output.dir}"/>
+  </path>
+  
+  <path id="miniature-java-server.runtime.module.classpath">
+    <pathelement location="${miniature-java-server.testoutput.dir}"/>
+    <pathelement location="${miniature-java-server.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.miniature-java-server">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.miniature-java-server">
+    <patternset refid="excluded.from.module.miniature-java-server"/>
+  </patternset>
+  
+  <path id="miniature-java-server.module.sourcepath">
+    <dirset dir="${module.miniature-java-server.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.miniature-java-server" depends="compile.module.miniature-java-server.production,compile.module.miniature-java-server.tests" description="Compile module miniature-java-server"/>
+  
+  <target name="compile.module.miniature-java-server.production" description="Compile module miniature-java-server; production classes">
+    <mkdir dir="${miniature-java-server.output.dir}"/>
+    <javac destdir="${miniature-java-server.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true">
+      <compilerarg line="${compiler.args.miniature-java-server}"/>
+      <bootclasspath refid="miniature-java-server.module.bootclasspath"/>
+      <classpath refid="miniature-java-server.module.production.classpath"/>
+      <src refid="miniature-java-server.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.miniature-java-server"/>
+    </javac>
+    
+    <copy todir="${miniature-java-server.output.dir}">
+      <fileset dir="${module.miniature-java-server.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.miniature-java-server.tests" depends="compile.module.miniature-java-server.production" description="compile module miniature-java-server; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.miniature-java-server" description="cleanup module">
+    <delete dir="${miniature-java-server.output.dir}"/>
+    <delete dir="${miniature-java-server.testoutput.dir}"/>
+  </target>
+</project>
